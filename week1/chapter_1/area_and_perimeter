@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+public class ComputeExpression {
+    public static void main(String[] args){
+        double width=4.5,height=7.9;
+        double perimeter,area;
+        perimeter=2*(width+height);
+        area=width*height;
+        System.out.println("The perimeter is "+perimeter+" and the area is "+area);
+    }
+}

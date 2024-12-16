@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class ComputeExpression {
+    public static void main(String[] args){
+        int t_born=7,t_death=13,t_move=45,year=365,number=312032486;
+        double n_born=1.0*year*24*60*60/t_born;
+        double n_death=1.0*year*24*60*60/t_death;
+        double n_move=1.0*year*24*60*60/t_move;
+        double n_save=n_born-n_move-n_death;
+        int future1=number+(int)n_save;
+        int future2=future1+(int)n_save;
+        int future3=future2+(int)n_save;
+        int future4=future3+(int)n_save;
+        int future5=future4+(int)n_save;
+        System.out.println("in the next five years,it would be: "+future1+" "+future2+" "+future3
+        +" "+future4+" "+future5);
+    }
+}
