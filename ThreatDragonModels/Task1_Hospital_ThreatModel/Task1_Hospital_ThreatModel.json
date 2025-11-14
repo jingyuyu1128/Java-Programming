@@ -33,8 +33,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "dba81db2-d2dd-4aa3-81ee-1b26592c8f0a",
             "zIndex": -1,
+            "id": "dba81db2-d2dd-4aa3-81ee-1b26592c8f0a",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "External_Network_Boundary",
@@ -59,8 +59,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "e26cc2b6-6386-42f2-815b-e9ecaa6f32cc",
             "zIndex": -1,
+            "id": "e26cc2b6-6386-42f2-815b-e9ecaa6f32cc",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Hospital_Internal_Network",
@@ -90,6 +90,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -173,7 +174,6 @@
               ]
             },
             "id": "b604300d-03cb-49fb-8225-67ac85f696c7",
-            "zIndex": 1,
             "data": {
               "type": "tm.Process",
               "name": "Patient_Portal\n_MobileApp",
@@ -271,6 +271,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -354,7 +355,6 @@
               ]
             },
             "id": "c17881f4-43c7-4d3c-bba8-aa2d36c6b63f",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "Patient",
@@ -381,13 +381,14 @@
                 "text": "Hospital_\nWeb_App"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -478,14 +479,87 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
-            },
-            "zIndex": 3
+              "threats": [
+                {
+                  "id": "4aa34e72-a7db-4798-a36d-4809a917841b",
+                  "title": "Staff identity spoofing",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Attacker logs in as doctor/nurse using compromised credentials.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "5cadd182-c01a-4fa9-8134-7c97816f8119",
+                  "title": "EHR record tampering",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Unauthorized modification of patient diagnosis or prescription.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "8d1023cf-7dab-4483-a943-b96d83bebf04",
+                  "title": "Staff action repudiation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Staff may deny modifying patient records without proper audit logs.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "1aa991d3-c05d-4e5b-9299-2c8c04ff55e1",
+                  "title": "Web app DoS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Attackers overwhelm the server, preventing medical operations.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "55660cd7-3ef2-4c98-a566-a18b9889ebf6",
+                  "title": "Privilege escalation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Low-privilege staff exploit vulnerabilities to access admin features.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
+            }
           },
           {
             "position": {
@@ -501,13 +575,14 @@
                 "text": "Authentication\n_Server"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -598,14 +673,87 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
-            },
-            "zIndex": 4
+              "threats": [
+                {
+                  "id": "28ae96d0-17ab-4551-a43f-99b46ebe62e0",
+                  "title": "Token spoofing",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Attackers try forging access tokens to gain unauthorized access.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "cfd6bac4-4385-41a7-ac4d-a6bf1ba4bf01",
+                  "title": "Token tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Attackers intercept and alter authentication tokens.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "1d4a6fdb-0f56-4e45-b9d4-722619ce64ea",
+                  "title": "Credential leakage",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Stolen credentials or leaked hashes lead to total compromise.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "005a06fc-f25b-4529-bf6f-1d423b0d906a",
+                  "title": "Authentication DoS",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Server overload prevents login for all users.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "93ef2be8-2d33-4ec6-9ac3-3810c4cf77df",
+                  "title": "Admin privilege escalation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Exploiting misconfigurations grants administrative rights.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
+            }
           },
           {
             "position": {
@@ -621,16 +769,19 @@
                 "text": "EHR_Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -714,7 +865,6 @@
               ]
             },
             "id": "172cd104-ca82-4b20-b49c-e26296f5ba00",
-            "zIndex": 5,
             "data": {
               "type": "tm.Store",
               "name": "EHR_Database",
@@ -722,13 +872,72 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "cb61061f-4c6d-406f-8d90-dfedd428b5be",
+                  "title": "EHR record modification",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Attackers modify or delete patient health records.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "11be4a5d-a3be-4891-8c98-ff11939bbd40",
+                  "title": "Untraceable changes",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Lack of audit logs prevents tracking who changed a record.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                },
+                {
+                  "id": "5ee2fae3-22f7-4b6d-b95c-26cbe82c17f1",
+                  "title": "PHI data breach",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Unauthorized access leads to large-scale PHI leakage.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                },
+                {
+                  "id": "de59c45d-0a76-473c-91df-b95e8ffbfce6",
+                  "title": "Database DoS",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Database outage disrupts hospital operations.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             }
           },
           {
@@ -752,6 +961,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -845,8 +1055,7 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "zIndex": 6
+            }
           },
           {
             "position": {
@@ -869,6 +1078,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -962,8 +1172,7 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "zIndex": 7
+            }
           },
           {
             "shape": "flow",
@@ -1465,6 +1674,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 5
+    "threatTop": 20
   }
 }
